@@ -37,8 +37,9 @@
   font-weight: 600;
   font-size: 18px;
   position: relative;
+  cursor: pointer;
 }
-.groups-cards .groups-card::before {
+.groups-cards .groups-card.selected::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -138,6 +139,9 @@
   gap: 10px;
   align-items: center;
 }
+.td-familiya-ism{
+  font-weight: 700;
+}
 .table-dots-icon {
   font-size: 18px;
   cursor: pointer;
@@ -149,4 +153,36 @@
   position: absolute;
   right: 5px;
   top: 5px;
+}
+
+.green-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #5cb85c;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.green-checkbox:checked {
+  background-color: #5cb85c;
+}
+.red-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #d9534f;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+}
+.red-checkbox:checked {
+  background-color: #d9534f;
+}
+.td-item{
+  font-weight: 600;
+  font-size: 20px;
+}
+.green-text{
+  color: #5cb85c;
+}
+.red-text{
+  color: #d9534f;
 }
