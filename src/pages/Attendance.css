@@ -1,0 +1,98 @@
+.attendance-container {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+.attendance {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 30px;
+}
+.groups-about {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.groups-cards-btn {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.groups-cards-hr {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 80%;
+  width: 100%;
+}
+.groups-cards-hr .groups-cards {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.groups-cards .groups-card {
+  font-weight: 600;
+  font-size: 18px;
+  position: relative;
+}
+.groups-cards .groups-card::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #6b52b2;
+  bottom: -10px;
+  left: 0;
+}
+.groups-cards-btn .groups-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  max-width: 150px;
+  width: 100%;
+  background: none;
+  border-style: dashed;
+  border-color: #ebe6e6;
+  color: #aaa;
+}
+.groups-table-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.table-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.groups-teacher{
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+.groups-teacher .teacher-about{
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.groups-teacher .new-groups-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 10px;
+    border: 1px solid #55B963;
+    color: #55B963;
+    background: none;
+}
+.davomat-dates{
+    display:flex;
+    align-items: center;
+    gap: 10px;
+}
+.davomat-dates .date-input{
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #aaa;
+}
