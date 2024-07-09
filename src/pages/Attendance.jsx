@@ -3,5 +3,3 @@ export default function Attendance() {
     <div>Attendance</div>
   )
 }
-
-console.log("Hello Frontend")
