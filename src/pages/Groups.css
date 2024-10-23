@@ -71,28 +71,23 @@
 }
 .groups-table {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   }
   .groups-table th, .groups-table td {
-    border: 1px solid #ddd;
     padding: 12px 15px;
-    text-align: left;
+  text-align: left;
+  border: 1px solid #e2e2e2;
   }
   .groups-table th {
-    background-color: #007bff;
-    color: white;
-    font-weight: bold;
-  }
-  
-  .groups-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
+    position: sticky;
+  top: 0;
+  background-color: #fff;
+  }  
   .groups-table tr:hover {
     background-color: #ddd;
-  }
-  
+  }  
   .groups-table td {
     font-size: 16px;
   }
