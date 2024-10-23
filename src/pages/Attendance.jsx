@@ -1,11 +1,8 @@
-<<<<<<< HEAD
-=======
 import { FaPlus } from "react-icons/fa6";
 import { PiDotsThreeOutlineVerticalThin } from "react-icons/pi";
 import "./Attendance.css";
 import { useState } from "react";
 
->>>>>>> 403b79fdaea95ac300ff78ec2d837465fdc212fd
 export default function Attendance() {
   const [selectGroupId, setSelectGroupId] = useState(1);
 

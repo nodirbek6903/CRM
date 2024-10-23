@@ -1,9 +1,15 @@
-const Bar = () => {
-  return (
-    <div>
-        
-    </div>
-  )
-}
+import Chart from "chart.js";
 
-export default Bar
+const barchart = () => {
+
+    const chart = new Chart(
+        document.getElementById('myChart')
+    )
+
+    return (
+        <>
+        <span id="myChart"></span>
+        </>
+    )
+}
+export default barchart

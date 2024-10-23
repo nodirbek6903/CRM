@@ -1,7 +1,8 @@
 
-export default function Dashboard() {
+const Dashboard = () => {
   return (
-    <div className="dashboard-container">
-    </div>
+    <div>Dashboard</div>
   )
 }
+
+export default Dashboard
