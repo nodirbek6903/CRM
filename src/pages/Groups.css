@@ -1,0 +1,98 @@
+.groups-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  gap: 2rem;
+}
+.groups-container .groups-cards {
+  width: 100%;
+  display: flex;
+  margin: 0 auto;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.groups-container .groups-card {
+  width: 20%;
+  margin: 10px;
+  padding: 5px 0;
+  height: 100px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #ccc;
+  display: grid;
+  align-content: center;
+  gap: 5px;
+  background-color: #dae0e5;
+  background-image: linear-gradient(135deg, #dae0e5 0%, #8a868c 100%);
+}
+.groups-container .groups-card .group-name {
+  text-align: center;
+  font-size: 15px;
+  color: #666;
+}
+.groups-container .groups-card .group-items {
+  font-size: 20px;
+  text-align: center;
+}
+.groups-tables{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.group-title{
+    font-size: 30px;
+    font-weight: 600;
+    margin: 20px 0;
+}
+.groups-condition{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.group-filter{
+    display: flex;
+    gap: 30px;
+}
+.group-filter .condition-btn{
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    position: relative;
+}
+.group-filter .condition-btn.active::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -10px;
+    left: 0;
+    background-color: #6b52b2;
+}
+.groups-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  .groups-table th, .groups-table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+  }
+  .groups-table th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .groups-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .groups-table tr:hover {
+    background-color: #ddd;
+  }
+  
+  .groups-table td {
+    font-size: 16px;
+  }
