@@ -3,7 +3,7 @@ import App from "../App";
 import Dashboard from './../pages/Dashboard';
 import Courses from './../pages/Courses';
 import Groups from './../pages/Groups';
-import Tables from './../pages/Tables';
+import Tables from '../pages/Dars_jadval';
 import Students from "../pages/Students";
 import Attendance from './../pages/Attendance';
 import Payments from './../pages/Payments';
