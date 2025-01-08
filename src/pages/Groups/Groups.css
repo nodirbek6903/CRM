@@ -1,0 +1,14 @@
+.groups-container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.groups-container h2{
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}

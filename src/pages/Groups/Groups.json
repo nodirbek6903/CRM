@@ -1,0 +1,223 @@
+[
+    {
+      "id": 1,
+      "group_name": "Frontend Avengers",
+      "direction": "Web Development",
+      "lesson_start_time": "10:00",
+      "created_date": "2025-01-01",
+      "students_count": 15,
+      "status": "offline",
+      "room_number": 101,
+      "teacher_name": "John Doe"
+    },
+    {
+      "id": 2,
+      "group_name": "Python Pioneers",
+      "direction": "Data Science",
+      "lesson_start_time": "14:00",
+      "created_date": "2025-01-05",
+      "students_count": 12,
+      "status": "offline",
+      "room_number": 102,
+      "teacher_name": "Emily White"
+    },
+    {
+      "id": 3,
+      "group_name": "React Warriors",
+      "direction": "Web Development",
+      "lesson_start_time": "18:00",
+      "created_date": "2025-01-10",
+      "students_count": 18,
+      "status": "online",
+      "room_number": 0,
+      "teacher_name": "Sarah Connor"
+    },
+    {
+      "id": 4,
+      "group_name": "Flutter Developers",
+      "direction": "Mobile Development",
+      "lesson_start_time": "20:00",
+      "created_date": "2025-01-15",
+      "students_count": 14,
+      "status": "online",
+      "room_number": 0,
+      "teacher_name": "Michael Brown"
+    },
+    {
+      "id": 5,
+      "group_name": "AI Innovators",
+      "direction": "AI and Robotics",
+      "lesson_start_time": "10:00",
+      "created_date": "2025-02-01",
+      "students_count": 10,
+      "status": "offline",
+      "room_number": 201,
+      "teacher_name": "Sophia Harris"
+    },
+    {
+      "id": 6,
+      "group_name": "Cyber Shield",
+      "direction": "Cybersecurity",
+      "lesson_start_time": "15:00",
+      "created_date": "2025-02-05",
+      "students_count": 8,
+      "status": "offline",
+      "room_number": 202,
+      "teacher_name": "Oliver Smith"
+    },
+    {
+      "id": 7,
+      "group_name": "SEO Experts",
+      "direction": "Digital Marketing",
+      "lesson_start_time": "12:00",
+      "created_date": "2025-02-10",
+      "students_count": 20,
+      "status": "online",
+      "room_number": 0,
+      "teacher_name": "Alice Johnson"
+    },
+    {
+      "id": 8,
+      "group_name": "ML Gurus",
+      "direction": "Data Science",
+      "lesson_start_time": "16:00",
+      "created_date": "2025-02-15",
+      "students_count": 13,
+      "status": "offline",
+      "room_number": 203,
+      "teacher_name": "James Lee"
+    },
+    {
+      "id": 9,
+      "group_name": "Mobile Pioneers",
+      "direction": "Mobile Development",
+      "lesson_start_time": "10:00",
+      "created_date": "2025-03-01",
+      "students_count": 18,
+      "status": "online",
+      "room_number": 0,
+      "teacher_name": "Emily Green"
+    },
+    {
+      "id": 10,
+      "group_name": "Design Thinkers",
+      "direction": "UI/UX Design",
+      "lesson_start_time": "11:00",
+      "created_date": "2025-03-05",
+      "students_count": 16,
+      "status": "offline",
+      "room_number": 301,
+      "teacher_name": "Chris Walker"
+    },
+    {
+      "id": 11,
+      "group_name": "React Pros",
+      "direction": "Web Development",
+      "lesson_start_time": "17:00",
+      "created_date": "2025-03-10",
+      "students_count": 20,
+      "status": "online",
+      "room_number": 0,
+      "teacher_name": "Sophia Carter"
+    },
+    {
+      "id": 12,
+      "group_name": "Backend Builders",
+      "direction": "Web Development",
+      "lesson_start_time": "09:00",
+      "created_date": "2025-03-15",
+      "students_count": 11,
+      "status": "offline",
+      "room_number": 302,
+      "teacher_name": "Lucas Adams"
+    },
+    {
+      "id": 13,
+      "group_name": "Figma Masters",
+      "direction": "UI/UX Design",
+      "lesson_start_time": "13:00",
+      "created_date": "2025-03-20",
+      "students_count": 14,
+      "status": "online",
+      "room_number": 0,
+      "teacher_name": "Isabella Clark"
+    },
+    {
+      "id": 14,
+      "group_name": "Security Gurus",
+      "direction": "Cybersecurity",
+      "lesson_start_time": "10:00",
+      "created_date": "2025-04-01",
+      "students_count": 9,
+      "status": "offline",
+      "room_number": 401,
+      "teacher_name": "Ethan Jones"
+    },
+    {
+      "id": 15,
+      "group_name": "Creative Coders",
+      "direction": "Graphic Design",
+      "lesson_start_time": "16:00",
+      "created_date": "2025-04-05",
+      "students_count": 19,
+      "status": "offline",
+      "room_number": 402,
+      "teacher_name": "Mia Johnson"
+    },
+    {
+      "id": 16,
+      "group_name": "AI Revolution",
+      "direction": "AI and Robotics",
+      "lesson_start_time": "18:00",
+      "created_date": "2025-04-10",
+      "students_count": 12,
+      "status": "online",
+      "room_number": 0,
+      "teacher_name": "Noah Harris"
+    },
+    {
+      "id": 17,
+      "group_name": "Photoshop Pros",
+      "direction": "Graphic Design",
+      "lesson_start_time": "11:00",
+      "created_date": "2025-04-15",
+      "students_count": 10,
+      "status": "offline",
+      "room_number": 403,
+      "teacher_name": "Lily Martin"
+    },
+    {
+      "id": 18,
+      "group_name": "Web Wizards",
+      "direction": "Web Development",
+      "lesson_start_time": "15:00",
+      "created_date": "2025-04-20",
+      "students_count": 17,
+      "status": "online",
+      "room_number": 0,
+      "teacher_name": "Emma Robinson"
+    },
+    {
+      "id": 19,
+      "group_name": "Data Divers",
+      "direction": "Data Science",
+      "lesson_start_time": "14:00",
+      "created_date": "2025-05-01",
+      "students_count": 16,
+      "status": "offline",
+      "room_number": 501,
+      "teacher_name": "Logan White"
+    },
+    {
+      "id": 20,
+      "group_name": "Marketing Wizards",
+      "direction": "Digital Marketing",
+      "lesson_start_time": "12:00",
+      "created_date": "2025-05-10",
+      "students_count": 21,
+      "status": "online",
+      "room_number": 0,
+      "teacher_name": "Oliver Smith"
+    }
+  ]
+  

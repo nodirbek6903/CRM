@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaPlus, FaTrash } from "react-icons/fa";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import "./Courses.css";
 import CoursesData from "./Courses.json";
 
 export default function Courses() {
-  const [courses, setCourses] = useState(CoursesData);
-  const [filter, setFilter] = useState("all");
+  const [courses] = useState(CoursesData);
+  const [filter, setFilter] = useState(() => 
+    localStorage.getItem("courseFilter") || "all"
+  );
   const [selectedCourses, setSelectedCourses] = useState([]);
+
+
+  useEffect(() => {
+    localStorage.setItem("courseFilter", filter)
+  },[filter])
+
 
   const handleFilterChange = (status) => {
     setFilter(status);
@@ -36,8 +44,8 @@ export default function Courses() {
   return (
     <div className="courses-container">
       <h2>Bizda bor kurslar</h2>
-      <div className="filter-courses">
-        <div className="courses-status">
+      <div className="filter-components">
+        <div className="component-status">
           <span
             className={filter === "all" ? "active-filter" : ""}
             onClick={() => handleFilterChange("all")}
