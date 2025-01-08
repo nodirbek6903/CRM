@@ -1,0 +1,203 @@
+[
+    {
+      "id": 1,
+      "direction": "Web Development",
+      "lesson_time": "10:00 - 12:00",
+      "topic": "HTML and CSS Basics",
+      "lesson_days": ["Monday", "Wednesday", "Friday"],
+      "status": "offline",
+      "start_date": "2025-01-15",
+      "students_count": 20
+    },
+    {
+      "id": 2,
+      "direction": "Web Development",
+      "lesson_time": "14:00 - 16:00",
+      "topic": "JavaScript Fundamentals",
+      "lesson_days": ["Tuesday", "Thursday"],
+      "status": "offline",
+      "start_date": "2025-01-20",
+      "students_count": 18
+    },
+    {
+      "id": 3,
+      "direction": "Data Science",
+      "lesson_time": "09:00 - 11:00",
+      "topic": "Python for Data Analysis",
+      "lesson_days": ["Monday", "Wednesday", "Friday"],
+      "status": "offline",
+      "start_date": "2025-02-01",
+      "students_count": 15
+    },
+    {
+      "id": 4,
+      "direction": "Data Science",
+      "lesson_time": "15:00 - 17:00",
+      "topic": "Machine Learning Basics",
+      "lesson_days": ["Tuesday", "Thursday"],
+      "status": "offline",
+      "start_date": "2025-02-05",
+      "students_count": 12
+    },
+    {
+      "id": 5,
+      "direction": "Mobile Development",
+      "lesson_time": "10:00 - 12:00",
+      "topic": "Android Development Basics",
+      "lesson_days": ["Monday", "Wednesday"],
+      "status": "offline",
+      "start_date": "2025-03-01",
+      "students_count": 22
+    },
+    {
+      "id": 6,
+      "direction": "Mobile Development",
+      "lesson_time": "14:00 - 16:00",
+      "topic": "iOS Development Basics",
+      "lesson_days": ["Tuesday", "Thursday"],
+      "status": "offline",
+      "start_date": "2025-03-10",
+      "students_count": 18
+    },
+    {
+      "id": 7,
+      "direction": "UI/UX Design",
+      "lesson_time": "11:00 - 13:00",
+      "topic": "Design Principles",
+      "lesson_days": ["Monday", "Friday"],
+      "status": "offline",
+      "start_date": "2025-03-15",
+      "students_count": 16
+    },
+    {
+      "id": 8,
+      "direction": "Graphic Design",
+      "lesson_time": "09:00 - 11:00",
+      "topic": "Adobe Photoshop Basics",
+      "lesson_days": ["Tuesday", "Thursday"],
+      "status": "offline",
+      "start_date": "2025-03-20",
+      "students_count": 14
+    },
+    {
+      "id": 9,
+      "direction": "Cybersecurity",
+      "lesson_time": "13:00 - 15:00",
+      "topic": "Network Security Basics",
+      "lesson_days": ["Monday", "Wednesday"],
+      "status": "offline",
+      "start_date": "2025-04-01",
+      "students_count": 10
+    },
+    {
+      "id": 10,
+      "direction": "Digital Marketing",
+      "lesson_time": "12:00 - 14:00",
+      "topic": "SEO Basics",
+      "lesson_days": ["Tuesday", "Thursday"],
+      "status": "offline",
+      "start_date": "2025-04-10",
+      "students_count": 19
+    },
+    {
+      "id": 11,
+      "direction": "Web Development",
+      "lesson_time": "18:00 - 20:00",
+      "topic": "React.js Fundamentals",
+      "lesson_days": ["Monday", "Wednesday", "Friday"],
+      "status": "online",
+      "start_date": "2025-01-15",
+      "students_count": 25
+    },
+    {
+      "id": 12,
+      "direction": "Web Development",
+      "lesson_time": "19:00 - 21:00",
+      "topic": "Node.js Basics",
+      "lesson_days": ["Tuesday", "Thursday"],
+      "status": "online",
+      "start_date": "2025-01-25",
+      "students_count": 22
+    },
+    {
+      "id": 13,
+      "direction": "Data Science",
+      "lesson_time": "20:00 - 22:00",
+      "topic": "Deep Learning Basics",
+      "lesson_days": ["Monday", "Wednesday"],
+      "status": "online",
+      "start_date": "2025-02-10",
+      "students_count": 20
+    },
+    {
+      "id": 14,
+      "direction": "Data Science",
+      "lesson_time": "18:00 - 20:00",
+      "topic": "Data Visualization with Python",
+      "lesson_days": ["Tuesday", "Thursday"],
+      "status": "online",
+      "start_date": "2025-02-15",
+      "students_count": 18
+    },
+    {
+      "id": 15,
+      "direction": "Mobile Development",
+      "lesson_time": "19:00 - 21:00",
+      "topic": "Flutter Development Basics",
+      "lesson_days": ["Monday", "Friday"],
+      "status": "online",
+      "start_date": "2025-03-01",
+      "students_count": 23
+    },
+    {
+      "id": 16,
+      "direction": "UI/UX Design",
+      "lesson_time": "20:00 - 22:00",
+      "topic": "Prototyping with Figma",
+      "lesson_days": ["Wednesday", "Saturday"],
+      "status": "online",
+      "start_date": "2025-03-05",
+      "students_count": 17
+    },
+    {
+      "id": 17,
+      "direction": "Graphic Design",
+      "lesson_time": "18:00 - 20:00",
+      "topic": "Illustrator Basics",
+      "lesson_days": ["Tuesday", "Thursday"],
+      "status": "online",
+      "start_date": "2025-03-10",
+      "students_count": 15
+    },
+    {
+      "id": 18,
+      "direction": "Cybersecurity",
+      "lesson_time": "19:00 - 21:00",
+      "topic": "Ethical Hacking Basics",
+      "lesson_days": ["Monday", "Wednesday"],
+      "status": "online",
+      "start_date": "2025-04-01",
+      "students_count": 12
+    },
+    {
+      "id": 19,
+      "direction": "Digital Marketing",
+      "lesson_time": "20:00 - 22:00",
+      "topic": "Social Media Marketing",
+      "lesson_days": ["Tuesday", "Thursday"],
+      "status": "online",
+      "start_date": "2025-04-05",
+      "students_count": 21
+    },
+    {
+      "id": 20,
+      "direction": "AI and Robotics",
+      "lesson_time": "18:00 - 20:00",
+      "topic": "Introduction to AI",
+      "lesson_days": ["Monday", "Friday"],
+      "status": "online",
+      "start_date": "2025-04-15",
+      "students_count": 24
+    }
+  ]
+  
