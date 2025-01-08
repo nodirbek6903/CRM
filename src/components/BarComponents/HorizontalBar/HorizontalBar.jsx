@@ -5,16 +5,22 @@ import { FaBell } from 'react-icons/fa';
  
 const HorizontalBar = () => {
 
-  const [isToggled, setIsToggled] = useState(false)
+  const [isToggled, setIsToggled] = useState(() => {
+    const savedState = localStorage.getItem("ToggleState");
+    return savedState ? JSON.parse(savedState) : false;
+  })
 
   const toggleBtn = () => {
-    setIsToggled(!isToggled)
+    const newState = !isToggled;
+    setIsToggled(newState);
+    localStorage.setItem("ToggleState", JSON.stringify(newState))
+
   }
 
   return (
     <div className="navbar">
       <div className="navbar-left">
-        <div className="logo">IT academy</div>
+        <div className="logo">IT Academy</div>
       </div>
       <div className="navbar-center">
         <input

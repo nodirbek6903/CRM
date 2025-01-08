@@ -28,7 +28,7 @@
   }
   
   .menu-item:hover {
-    background-color: #1abc9c; 
+    background-color: #0d7963; 
     color: white;
   }
   
@@ -39,7 +39,7 @@
   }
   
   .menu-item.active {
-    background-color: #1abc9c;
+    background-color: #00cca3;
     font-weight: bold;
   }
   

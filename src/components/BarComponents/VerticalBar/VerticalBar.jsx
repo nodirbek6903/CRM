@@ -11,10 +11,16 @@ import "./VerticalBar.css";
 import { Link } from "react-router-dom";
 
 const VerticalBar = () => {
-  const [activeItem, setActiveItem] = useState(1);
+  const [activeItem, setActiveItem] = useState(() => {
+    const savedItem = localStorage.getItem("activeMenuItem");
+    return savedItem ? parseInt(savedItem) : 1;
+  });
+
+  
 
   const handleClickActiveItem = (id) => {
     setActiveItem(id);
+    localStorage.setItem("activeMenuItem", id)
   };
 
   const menuItems = [
