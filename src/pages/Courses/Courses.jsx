@@ -80,7 +80,7 @@ export default function Courses() {
               />{" "} */}
               {selectedCourses.length > 0
                 ? `${selectedCourses.length} ta tanlangan`
-                : "Hech narsa tanlanmagan"}
+                : ""}
             </span>
             <button
               className="deleted-btn"
