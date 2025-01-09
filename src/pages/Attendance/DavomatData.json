@@ -1,0 +1,440 @@
+{
+    "directions": [
+      {
+        "id": 1,
+        "name": "Frontend",
+        "groups": [
+          {
+            "id": 101,
+            "name": "Frontend Group 1",
+            "teacher": "Ismoil aka",
+            "students": [
+              {
+                "id": 1001,
+                "full_name": "Abdurahmon Madaminov",
+                "phone_number": "+998901234567",
+                "lesson_type": "online",
+                "attendance": [
+                  { "date": "2025-01-08", "status": "Keldi" },
+                  { "date": "2025-01-09", "status": "Kelmedi" }
+                ]
+              },
+              {
+                "id": 1002,
+                "full_name": "Bekzod Ahmedov",
+                "phone_number": "+998931234567",
+                "lesson_type": "online",
+                "attendance": [
+                  { "date": "2025-01-08", "status": "Keldi" },
+                  { "date": "2025-01-09", "status": "Keldi" }
+                ]
+              }
+            ]
+          },
+          {
+            "id": 102,
+            "name": "Frontend Group 2",
+            "teacher": "Dilmurod aka",
+            "students": [
+              {
+                "id": 1003,
+                "full_name": "Sarvar Karimov",
+                "phone_number": "+998911234567",
+                "lesson_type": "online",
+                "attendance": [
+                  { "date": "2025-01-08", "status": "Kelmedi" },
+                  { "date": "2025-01-09", "status": "Keldi" }
+                ]
+              },
+              {
+                "id": 1004,
+                "full_name": "Umidbek Ergashev",
+                "phone_number": "+998991234567",
+                "lesson_type": "online",
+                "attendance": [
+                  { "date": "2025-01-08", "status": "Kelmedi" },
+                  { "date": "2025-01-09", "status": "Keldi" }
+                ]
+              }
+            ]
+          },
+          {
+            "id": 103,
+            "name": "Frontend Group 3",
+            "teacher": "Sardor aka",
+            "students": [
+              {
+                "id": 1005,
+                "full_name": "Dilshod Alimov",
+                "phone_number": "+998901112233",
+                "lesson_type": "online",
+                "attendance": [
+                  { "date": "2025-01-08", "status": "Keldi" },
+                  { "date": "2025-01-09", "status": "Kelmedi" }
+                ]
+              },
+              {
+                "id": 1006,
+                "full_name": "Feruza Akhmedova",
+                "phone_number": "+998903334455",
+                "lesson_type": "online",
+                "attendance": [
+                  { "date": "2025-01-08", "status": "Keldi" },
+                  { "date": "2025-01-09", "status": "Keldi" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Backend",
+        "groups": [
+          {
+            "id": 201,
+            "name": "Backend Group 1",
+            "teacher": "Abbos aka",
+            "students": [
+              {
+                "id": 2001,
+                "full_name": "Olim Shukurov",
+                "phone_number": "+998903214567",
+                "lesson_type": "online",
+                "attendance": [
+                  { "date": "2025-01-08", "status": "Keldi" },
+                  { "date": "2025-01-09", "status": "Kelmedi" }
+                ]
+              },
+              {
+                "id": 2002,
+                "full_name": "Lola Karimova",
+                "phone_number": "+998912345678",
+                "lesson_type": "online",
+                "attendance": [
+                  { "date": "2025-01-08", "status": "Keldi" },
+                  { "date": "2025-01-09", "status": "Keldi" }
+                ]
+              }
+            ]
+          },
+          {
+            "id": 202,
+            "name": "Backend Group 2",
+            "teacher": "Sherzod aka",
+            "students": [
+              {
+                "id": 2003,
+                "full_name": "Kamron Ismailov",
+                "phone_number": "+998931111222",
+                "lesson_type": "online",
+                "attendance": [
+                  { "date": "2025-01-08", "status": "Kelmedi" },
+                  { "date": "2025-01-09", "status": "Keldi" }
+                ]
+              },
+              {
+                "id": 2004,
+                "full_name": "Madina Oripova",
+                "phone_number": "+998945555666",
+                "lesson_type": "online",
+                "attendance": [
+                  { "date": "2025-01-08", "status": "Keldi" },
+                  { "date": "2025-01-09", "status": "Kelmedi" }
+                ]
+              }
+            ]
+          },
+          {
+            "id": 203,
+            "name": "Backend Group 3",
+            "teacher": "Rustam aka",
+            "students": [
+              {
+                "id": 2005,
+                "full_name": "Jasmina Abdullaeva",
+                "phone_number": "+998902223344",
+                "lesson_type": "online",
+                "attendance": [
+                  { "date": "2025-01-08", "status": "Kelmedi" },
+                  { "date": "2025-01-09", "status": "Keldi" }
+                ]
+              },
+              {
+                "id": 2006,
+                "full_name": "Murod Sobirov",
+                "phone_number": "+998934445566",
+                "lesson_type": "online",
+                "attendance": [
+                  { "date": "2025-01-08", "status": "Keldi" },
+                  { "date": "2025-01-09", "status": "Kelmedi" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Web Design",
+        "groups": [
+          {
+            "id": 301,
+            "name": "Web Design Group 1",
+            "teacher": "Zuhra opa",
+            "students": [
+                {
+                    "id": 1001,
+                    "full_name": "Abdurahmon Madaminov",
+                    "phone_number": "+998901234567",
+                    "lesson_type": "offline",
+                    "attendance": [
+                      { "date": "2025-01-08", "status": "Keldi" },
+                      { "date": "2025-01-09", "status": "Kelmedi" }
+                    ]
+                  },
+                  {
+                    "id": 1002,
+                    "full_name": "Bekzod Ahmedov",
+                    "phone_number": "+998931234567",
+                    "lesson_type": "offline",
+                    "attendance": [
+                      { "date": "2025-01-08", "status": "Keldi" },
+                      { "date": "2025-01-09", "status": "Keldi" }
+                    ]
+                  }
+            ]
+          },
+          {
+            "id": 302,
+            "name": "Web Design Group 2",
+            "teacher": "Jamshid aka",
+            "students": [
+                {
+                    "id": 1001,
+                    "full_name": "Abdurahmon Madaminov",
+                    "phone_number": "+998901234567",
+                    "lesson_type": "offline",
+                    "attendance": [
+                      { "date": "2025-01-08", "status": "Keldi" },
+                      { "date": "2025-01-09", "status": "Kelmedi" }
+                    ]
+                  },
+                  {
+                    "id": 1002,
+                    "full_name": "Bekzod Ahmedov",
+                    "phone_number": "+998931234567",
+                    "lesson_type": "offline",
+                    "attendance": [
+                      { "date": "2025-01-08", "status": "Keldi" },
+                      { "date": "2025-01-09", "status": "Keldi" }
+                    ]
+                  }
+            ]
+          },
+          {
+            "id": 303,
+            "name": "Web Design Group 3",
+            "teacher": "Otabek aka",
+            "students": [
+                {
+                    "id": 1001,
+                    "full_name": "Abdurahmon Madaminov",
+                    "phone_number": "+998901234567",
+                    "lesson_type": "offline",
+                    "attendance": [
+                      { "date": "2025-01-08", "status": "Keldi" },
+                      { "date": "2025-01-09", "status": "Kelmedi" }
+                    ]
+                  },
+                  {
+                    "id": 1002,
+                    "full_name": "Bekzod Ahmedov",
+                    "phone_number": "+998931234567",
+                    "lesson_type": "offline",
+                    "attendance": [
+                      { "date": "2025-01-08", "status": "Keldi" },
+                      { "date": "2025-01-09", "status": "Keldi" }
+                    ]
+                  }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "SMM",
+        "groups": [
+          {
+            "id": 401,
+            "name": "SMM Group 1",
+            "teacher": "Nargiza opa",
+            "students": [
+                {
+                    "id": 1001,
+                    "full_name": "Abdurahmon Madaminov",
+                    "phone_number": "+998901234567",
+                    "lesson_type": "offline",
+                    "attendance": [
+                      { "date": "2025-01-08", "status": "Keldi" },
+                      { "date": "2025-01-09", "status": "Kelmedi" }
+                    ]
+                  },
+                  {
+                    "id": 1002,
+                    "full_name": "Bekzod Ahmedov",
+                    "phone_number": "+998931234567",
+                    "lesson_type": "offline",
+                    "attendance": [
+                      { "date": "2025-01-08", "status": "Keldi" },
+                      { "date": "2025-01-09", "status": "Keldi" }
+                    ]
+                  }
+            ]
+          },
+          {
+            "id": 402,
+            "name": "SMM Group 2",
+            "teacher": "Kamol aka",
+            "students": [
+                {
+                    "id": 1001,
+                    "full_name": "Abdurahmon Madaminov",
+                    "phone_number": "+998901234567",
+                    "lesson_type": "offline",
+                    "attendance": [
+                      { "date": "2025-01-08", "status": "Keldi" },
+                      { "date": "2025-01-09", "status": "Kelmedi" }
+                    ]
+                  },
+                  {
+                    "id": 1002,
+                    "full_name": "Bekzod Ahmedov",
+                    "phone_number": "+998931234567",
+                    "lesson_type": "offline",
+                    "attendance": [
+                      { "date": "2025-01-08", "status": "Keldi" },
+                      { "date": "2025-01-09", "status": "Keldi" }
+                    ]
+                  }
+            ]
+          },
+          {
+            "id": 403,
+            "name": "SMM Group 3",
+            "teacher": "Shahnoza opa",
+            "students": [
+                {
+                    "id": 1001,
+                    "full_name": "Abdurahmon Madaminov",
+                    "phone_number": "+998901234567",
+                    "lesson_type": "offline",
+                    "attendance": [
+                      { "date": "2025-01-08", "status": "Keldi" },
+                      { "date": "2025-01-09", "status": "Kelmedi" }
+                    ]
+                  },
+                  {
+                    "id": 1002,
+                    "full_name": "Bekzod Ahmedov",
+                    "phone_number": "+998931234567",
+                    "lesson_type": "offline",
+                    "attendance": [
+                      { "date": "2025-01-08", "status": "Keldi" },
+                      { "date": "2025-01-09", "status": "Keldi" }
+                    ]
+                  }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Graphic Design",
+        "groups": [
+          {
+            "id": 501,
+            "name": "Graphic Design Group 1",
+            "teacher": "Akmal aka",
+            "students": [
+                {
+                    "id": 1001,
+                    "full_name": "Abdurahmon Madaminov",
+                    "phone_number": "+998901234567",
+                    "lesson_type": "offline",
+                    "attendance": [
+                      { "date": "2025-01-08", "status": "Keldi" },
+                      { "date": "2025-01-09", "status": "Kelmedi" }
+                    ]
+                  },
+                  {
+                    "id": 1002,
+                    "full_name": "Bekzod Ahmedov",
+                    "phone_number": "+998931234567",
+                    "lesson_type": "offline",
+                    "attendance": [
+                      { "date": "2025-01-08", "status": "Keldi" },
+                      { "date": "2025-01-09", "status": "Keldi" }
+                    ]
+                  }
+            ]
+          },
+          {
+            "id": 502,
+            "name": "Graphic Design Group 2",
+            "teacher": "Olim aka",
+            "students": [
+                {
+                    "id": 1001,
+                    "full_name": "Abdurahmon Madaminov",
+                    "phone_number": "+998901234567",
+                    "lesson_type": "offline",
+                    "attendance": [
+                      { "date": "2025-01-08", "status": "Keldi" },
+                      { "date": "2025-01-09", "status": "Kelmedi" }
+                    ]
+                  },
+                  {
+                    "id": 1002,
+                    "full_name": "Bekzod Ahmedov",
+                    "phone_number": "+998931234567",
+                    "lesson_type": "offline",
+                    "attendance": [
+                      { "date": "2025-01-08", "status": "Keldi" },
+                      { "date": "2025-01-09", "status": "Keldi" }
+                    ]
+                  }
+            ]
+          },
+          {
+            "id": 503,
+            "name": "Graphic Design Group 3",
+            "teacher": "Shohruh aka",
+            "students": [
+                {
+                    "id": 1001,
+                    "full_name": "Abdurahmon Madaminov",
+                    "phone_number": "+998901234567",
+                    "lesson_type": "offline",
+                    "attendance": [
+                      { "date": "2025-01-08", "status": "Keldi" },
+                      { "date": "2025-01-09", "status": "Kelmedi" }
+                    ]
+                  },
+                  {
+                    "id": 1002,
+                    "full_name": "Bekzod Ahmedov",
+                    "phone_number": "+998931234567",
+                    "lesson_type": "offline",
+                    "attendance": [
+                      { "date": "2025-01-08", "status": "Keldi" },
+                      { "date": "2025-01-09", "status": "Keldi" }
+                    ]
+                  }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  

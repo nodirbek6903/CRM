@@ -1,0 +1,136 @@
+/* Umumiy container */
+.attendance-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    box-shadow: 4px 4px 10px #d1d1d1, -4px -4px 10px #ffffff;
+    border-radius: 12px;
+  }
+  
+  .attendance-container h2 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  /* Labellar */
+  .attendance-container label {
+    display: block;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  
+  /* Zamonaviy select dropdownlar */
+  .attendance-container select {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #fdfdfd;
+    appearance: none;
+    outline: none;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .attendance-container select:hover {
+    border-color: #007bff;
+    box-shadow: 2px 2px 12px rgba(0, 123, 255, 0.2);
+  }
+  
+  .attendance-container select:focus {
+    border-color: #007bff;
+    box-shadow: 0px 0px 6px #007bff;
+  }
+  
+  /* Custom dropdown arrow */
+  .attendance-container select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23007bff'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+  }
+  
+  /* Animatsiya uchun container */
+  .attendance-container select option {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .attendance-container select:focus option,
+  .attendance-container select:hover option {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Jadval dizayni */
+  .attendance-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .attendance-container table th,
+  .attendance-container table td {
+    text-align: left;
+    padding: 12px 16px;
+    border: 1px solid #eaeaea;
+    font-size: 14px;
+  }
+  
+  .attendance-container table th {
+    background-color: #f8f9fa;
+    color: #495057;
+    font-weight: 600;
+  }
+  
+  .attendance-container table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .attendance-container table tr:hover {
+    background-color: #f1faff;
+  }
+  
+  /* Davomat dropdownlari */
+  .attendance-container table select {
+    width: auto;
+    padding: 6px 10px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #fff;
+    appearance: none;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  /* O'qituvchi ismi */
+  .attendance-container .teacher-name {
+    color: #007BFF;
+    font-size: 20px;
+    margin-top: 20px;
+    font-weight: 500;
+    text-align: left;
+  }
+  
+  /* Talabalar ro'yxati uchun */
+  .attendance-container tbody tr td {
+    font-size: 14px;
+    color: #333;
+  }
+  
