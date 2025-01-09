@@ -13,7 +13,8 @@
   .navbar-left .logo {
     font-size: 18px;
     font-weight: bold;
-    color: #2c3e50;
+    color: #000;
+    text-decoration: none;
   }
   
   .navbar-center {

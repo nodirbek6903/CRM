@@ -1,0 +1,223 @@
+[
+    {
+      "id": 1,
+      "full_name": "Aliyev Nodir",
+      "phone_number": "+998901234567",
+      "status": "offline",
+      "teacher_name": "Shukurov Botir",
+      "field": "Web Development",
+      "group_name": "Frontend 101",
+      "birth_date": "2000-05-12",
+      "registration_date": "2025-01-01"
+    },
+    {
+      "id": 2,
+      "full_name": "Karimova Dilnoza",
+      "phone_number": "+998903456789",
+      "status": "online",
+      "teacher_name": "Tursunov Aziz",
+      "field": "Graphic Design",
+      "group_name": "Photoshop Basics",
+      "birth_date": "1998-08-22",
+      "registration_date": "2025-01-02"
+    },
+    {
+      "id": 3,
+      "full_name": "Usmonov Sardor",
+      "phone_number": "+998931111111",
+      "status": "offline",
+      "teacher_name": "Shukurov Botir",
+      "field": "Web Development",
+      "group_name": "Backend 201",
+      "birth_date": "1995-07-15",
+      "registration_date": "2025-01-03"
+    },
+    {
+      "id": 4,
+      "full_name": "Madaminova Shirin",
+      "phone_number": "+998912222222",
+      "status": "online",
+      "teacher_name": "Raximov Ulug'bek",
+      "field": "Data Science",
+      "group_name": "Python Advanced",
+      "birth_date": "1997-10-05",
+      "registration_date": "2025-01-04"
+    },
+    {
+      "id": 5,
+      "full_name": "Hakimov Timur",
+      "phone_number": "+998933333333",
+      "status": "offline",
+      "teacher_name": "Nazarov Akmal",
+      "field": "Mobile Development",
+      "group_name": "Flutter Pro",
+      "birth_date": "1999-04-18",
+      "registration_date": "2025-01-05"
+    },
+    {
+      "id": 6,
+      "full_name": "Salimova Nodira",
+      "phone_number": "+998944444444",
+      "status": "online",
+      "teacher_name": "Tursunov Aziz",
+      "field": "Graphic Design",
+      "group_name": "Illustrator Basics",
+      "birth_date": "2001-03-21",
+      "registration_date": "2025-01-06"
+    },
+    {
+      "id": 7,
+      "full_name": "Qobilov Bekzod",
+      "phone_number": "+998955555555",
+      "status": "offline",
+      "teacher_name": "Raximov Ulug'bek",
+      "field": "Data Science",
+      "group_name": "Machine Learning",
+      "birth_date": "1996-11-03",
+      "registration_date": "2025-01-07"
+    },
+    {
+      "id": 8,
+      "full_name": "Ergasheva Laylo",
+      "phone_number": "+998966666666",
+      "status": "online",
+      "teacher_name": "Nazarov Akmal",
+      "field": "Mobile Development",
+      "group_name": "Kotlin Basics",
+      "birth_date": "2002-06-12",
+      "registration_date": "2025-01-08"
+    },
+    {
+      "id": 9,
+      "full_name": "Xudoyberdiyev Doston",
+      "phone_number": "+998977777777",
+      "status": "offline",
+      "teacher_name": "Shukurov Botir",
+      "field": "Web Development",
+      "group_name": "Frontend 101",
+      "birth_date": "1994-09-25",
+      "registration_date": "2025-01-09"
+    },
+    {
+      "id": 10,
+      "full_name": "Olimova Malika",
+      "phone_number": "+998988888888",
+      "status": "online",
+      "teacher_name": "Tursunov Aziz",
+      "field": "Graphic Design",
+      "group_name": "Photoshop Basics",
+      "birth_date": "1998-02-14",
+      "registration_date": "2025-01-10"
+    },
+    {
+      "id": 11,
+      "full_name": "Rasulov Timur",
+      "phone_number": "+998901234678",
+      "status": "offline",
+      "teacher_name": "Nazarov Akmal",
+      "field": "Mobile Development",
+      "group_name": "Flutter Pro",
+      "birth_date": "1995-12-30",
+      "registration_date": "2025-01-11"
+    },
+    {
+      "id": 12,
+      "full_name": "Jalilova Madina",
+      "phone_number": "+998913456789",
+      "status": "online",
+      "teacher_name": "Raximov Ulug'bek",
+      "field": "Data Science",
+      "group_name": "Python Advanced",
+      "birth_date": "2000-07-08",
+      "registration_date": "2025-01-12"
+    },
+    {
+      "id": 13,
+      "full_name": "Bozorov Alisher",
+      "phone_number": "+998931234567",
+      "status": "offline",
+      "teacher_name": "Shukurov Botir",
+      "field": "Web Development",
+      "group_name": "Backend 201",
+      "birth_date": "1997-03-19",
+      "registration_date": "2025-01-13"
+    },
+    {
+      "id": 14,
+      "full_name": "Tojiboyeva Shoira",
+      "phone_number": "+998941234567",
+      "status": "online",
+      "teacher_name": "Tursunov Aziz",
+      "field": "Graphic Design",
+      "group_name": "Illustrator Basics",
+      "birth_date": "2003-05-30",
+      "registration_date": "2025-01-14"
+    },
+    {
+      "id": 15,
+      "full_name": "Rustamov Eldor",
+      "phone_number": "+998951234567",
+      "status": "offline",
+      "teacher_name": "Raximov Ulug'bek",
+      "field": "Data Science",
+      "group_name": "Machine Learning",
+      "birth_date": "1999-08-20",
+      "registration_date": "2025-01-15"
+    },
+    {
+      "id": 16,
+      "full_name": "Maxmudova Gulnoza",
+      "phone_number": "+998961234567",
+      "status": "online",
+      "teacher_name": "Nazarov Akmal",
+      "field": "Mobile Development",
+      "group_name": "Kotlin Basics",
+      "birth_date": "2001-01-01",
+      "registration_date": "2025-01-16"
+    },
+    {
+      "id": 17,
+      "full_name": "Sattorov Behzod",
+      "phone_number": "+998971234567",
+      "status": "offline",
+      "teacher_name": "Shukurov Botir",
+      "field": "Web Development",
+      "group_name": "Frontend 101",
+      "birth_date": "1993-04-07",
+      "registration_date": "2025-01-17"
+    },
+    {
+      "id": 18,
+      "full_name": "Norqulova Dildora",
+      "phone_number": "+998981234567",
+      "status": "online",
+      "teacher_name": "Tursunov Aziz",
+      "field": "Graphic Design",
+      "group_name": "Photoshop Basics",
+      "birth_date": "1998-12-25",
+      "registration_date": "2025-01-18"
+    },
+    {
+      "id": 19,
+      "full_name": "Ismoilov Sherzod",
+      "phone_number": "+998991234567",
+      "status": "offline",
+      "teacher_name": "Raximov Ulug'bek",
+      "field": "Data Science",
+      "group_name": "Machine Learning",
+      "birth_date": "1996-11-01",
+      "registration_date": "2025-01-19"
+    },
+    {
+      "id": 20,
+      "full_name": "Zokirova Zuhra",
+      "phone_number": "+998901234569",
+      "status": "online",
+      "teacher_name": "Nazarov Akmal",
+      "field": "Mobile Development",
+      "group_name": "Flutter Pro",
+      "birth_date": "2002-09-10",
+      "registration_date": "2025-01-20"
+    }
+  ]
+  

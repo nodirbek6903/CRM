@@ -48,6 +48,7 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  outline: none;
 }
 
 .selected-items .deleted-btn {
@@ -72,6 +73,7 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   margin-right: 10px;
+  outline: none !important;
 }
 
 /* Table */

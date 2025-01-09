@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Images from '../../../assets/Resumeimg.jpg'
 import "./HorizontalBar.css"
 import { FaBell } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
  
 const HorizontalBar = () => {
 
@@ -20,7 +21,7 @@ const HorizontalBar = () => {
   return (
     <div className="navbar">
       <div className="navbar-left">
-        <div className="logo">IT Academy</div>
+        <Link className="logo">IT Academy</Link>
       </div>
       <div className="navbar-center">
         <input
