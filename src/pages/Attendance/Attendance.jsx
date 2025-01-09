@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Attendance.css";
 import DavomatData from "./DavomatData.json"
+import { FaPlus } from "react-icons/fa";
 
 export default function Attendance() {
   const [selectionDirection, setSelectionDirection] = useState("")
@@ -80,7 +81,10 @@ export default function Attendance() {
       {
         selectedGroup && (
           <div>
+          <div className="create-group-teacher">
           <h2 className="teacher-name">O'qituvchi: {selectedGroup.teacher}</h2>
+          <button className="create-group-btn"><FaPlus /> Guruh Qo'shish</button>
+          </div>
           <table>
             <thead>
               <tr>
