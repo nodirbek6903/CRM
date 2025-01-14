@@ -34,7 +34,7 @@ export default function Groups() {
 
   return (
     <div className="groups-container">
-      <div className="all-groups-cards"></div>
+      {/* <div className="all-groups-cards"></div> */}
       <h2>Bizning Guruhlarimiz</h2>
       <div className="filter-components">
         <div className="component-status">
@@ -58,20 +58,6 @@ export default function Groups() {
               <div className="items">
                 <div className="selected-items">
                   <span>
-                    {/* <input
-                      type="checkbox"
-                      onChange={(e) =>
-                        e.target.checked
-                          ? setSelectedCourses(
-                              filteredCourses.map((course) => course.id)
-                            )
-                          : setSelectedCourses([])
-                      }
-                      checked={
-                        selectedCourses.length === filteredCourses.length &&
-                        filteredCourses.length > 0
-                      }
-                    />{" "} */}
                     {selectedGroups.length > 0
                       ? `${selectedGroups.length} ta tanlangan`
                       : ""}

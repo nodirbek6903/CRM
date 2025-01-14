@@ -1,0 +1,88 @@
+{
+    "groups": [
+        {
+            "id": 1,
+            "group_name": "Frontend 1",
+            "teacher_name":"Usmon aka",
+            "students": [
+                {
+                    "student_id":1,
+                    "student_name": "Umarov Nodirbek",
+                    "phone_number":"+998903874732",
+                    "otherPhone_number":"+998903874733",
+                    "payment_status":"To'lov qildi"
+                },
+                {
+                    "student_id":2,
+                    "student_name": "Abdusaminov Anvariddin",
+                    "phone_number":"+998903642812",
+                    "otherPhone_number":"+998903815465",
+                    "payment_status":"To'lov qilmadi"
+                }
+            ]
+        },
+        {
+            "id":2,
+            "group_name":"Backend 1",
+            "teacher_name":"Avaz aka",
+            "students": [
+                {
+                    "student_id":101,
+                    "student_name": "Avazov Shuhrat",
+                    "phone_number":"+998902223344",
+                    "otherPhone_number":"+998903815465",
+                    "payment_status":"To'lov qildi"
+                },
+                {
+                    "student_id":102,
+                    "student_name":"Olimov Bakir",
+                    "phone_number":"+998902223344",
+                    "otherPhone_number":"+998903874733",
+                    "payment_status":"To'lov qilmadi"
+                }
+            ]
+        },
+        {
+            "id":3,
+            "group_name":"Web Design 3",
+            "teacher_name":"Oybek aka",
+            "students":[
+                {
+                    "student_id":201,
+                    "student_name": "Avazov Shokir",
+                    "phone_number":"+998902223344",
+                    "otherPhone_number":"+998903815465",
+                    "payment_status":"To'lov qilmadi"
+                },
+                {
+                    "student_id":202,
+                    "student_name":"Abrorova Madina",
+                    "phone_number":"+998902223344",
+                    "otherPhone_number":"+998903815465",
+                    "payment_status":"To'lov qildi"
+                }
+            ]
+        },
+        {
+            "id":4,
+            "group_name":"SMM Pro",
+            "teacher_name":"Malika Opa",
+            "students":[
+                {
+                    "student_id":301,
+                    "student_name":"Malikova Shahnoza",
+                    "phone_number":"+998903874732",
+                    "otherPhone_number":"+998903642812",
+                    "payment_status":"To'lov qilmadi"
+                },
+                {
+                    "student_id":302,
+                    "student_name":"Abdullayeva Gulnoza",
+                    "phone_number":"+998903642812",
+                    "otherPhone_number":"+998903874733",
+                    "payment_status":"To'lov qildi"
+                }
+            ]
+        }
+    ]
+}

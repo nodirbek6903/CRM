@@ -1,0 +1,57 @@
+.payment-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  .payment-container h1{
+    margin-bottom: 30px;
+  } 
+  .group-info h2 {
+    margin: 10px 0 5px;
+  }
+  
+  .group-info p {
+    margin: 0 0 20px;
+    color: #555;
+  }
+  .group-info p span{
+    color:#007bff;
+    font-weight: 600;
+  }
+  .table-container {
+    margin-top: 20px;
+  }
+  
+  .payment-container table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .payment-container table th,
+  .payment-container table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .payment-container table th {
+    background-color: #f4f4f4;
+  }
+  
+  .payment-container table td {
+    font-size: 14px;
+  }
+  
+  .delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .delete-button:hover {
+    background-color: darkred;
+  }
+  
