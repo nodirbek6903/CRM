@@ -60,21 +60,23 @@ export default function Payments() {
       {/* Guruhlarni filtrlash tugmalari */}
       <div className="filter-components">
         <div className="component-status">
-        <span
-          onClick={() => setSelectedGroup("all")}
-          className={`${selectedGroup === "all" && "active-filter"}`}
-        >
-          Guruhlar hammasi
-        </span>
-        {paymentData.groups.map((group) => (
           <span
-            key={group.id}
-            className={`${selectedGroup === group.group_name && "active-filter"}`}
-            onClick={() => setSelectedGroup(group.group_name)}
+            onClick={() => setSelectedGroup("all")}
+            className={`${selectedGroup === "all" && "active-filter"}`}
           >
-            {group.group_name}
+            Guruhlar hammasi
           </span>
-        ))}
+          {paymentData.groups.map((group) => (
+            <span
+              key={group.id}
+              className={`${
+                selectedGroup === group.group_name && "active-filter"
+              }`}
+              onClick={() => setSelectedGroup(group.group_name)}
+            >
+              {group.group_name}
+            </span>
+          ))}
         </div>
         <hr />
       </div>
@@ -119,22 +121,6 @@ export default function Payments() {
         <table>
           <thead>
             <tr>
-              <th>
-                <input
-                  type="checkbox"
-                  onChange={(e) =>
-                    e.target.checked
-                      ? setSelectedStudents(
-                          filteredStudents.map((s) => s.student_id)
-                        )
-                      : setSelectedStudents([])
-                  }
-                  checked={
-                    selectedStudents.length > 0 &&
-                    selectedStudents.length === filteredStudents.length
-                  }
-                />
-              </th>
               <th>F.I.SH</th>
               <th>Telefon raqami</th>
               <th>Qo'shimcha raqam</th>
@@ -149,9 +135,9 @@ export default function Payments() {
                     type="checkbox"
                     checked={selectedStudents.includes(student.student_id)}
                     onChange={() => handleCheckboxChange(student.student_id)}
-                  />
+                  />{" "}
+                  {student.student_name}
                 </td>
-                <td>{student.student_name}</td>
                 <td>{student.phone_number}</td>
                 <td>{student.otherPhone_number}</td>
                 <td
