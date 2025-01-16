@@ -7,128 +7,48 @@ import Tables from '../pages/Dars Jadval/Dars_jadval';
 import Student from "../pages/Students/Students";
 import Attendance from './../pages/Attendance/Attendance';
 import Payments from './../pages/Payments/Payments';
+import Login from "../auth/Login"
+import ProtectedRoute from "./ProtectedRoute"
 
 const router = createBrowserRouter ([
     {
         path:'/',
-        element: <App />,
+        element: <ProtectedRoute><App /></ProtectedRoute>,
         children: [
             {
                 path:"/",
-                element: <Dashboard/>
+                element: <ProtectedRoute><Dashboard/></ProtectedRoute>
             },
             {
                 path:"/courses",
-                element: <Courses/>
+                element: <ProtectedRoute><Courses/></ProtectedRoute>
             },
             {
                 path:"/groups",
-                element: <Groups/>
+                element: <ProtectedRoute><Groups/></ProtectedRoute>
             },
             {
                 path:"/tables",
-                element: <Tables/>
+                element: <ProtectedRoute><Tables/></ProtectedRoute>
             },
             {
                 path:"/students",
-                element: <Student/>
+                element: <ProtectedRoute><Student/></ProtectedRoute>
             },
             {
                 path:"/attendance",
-                element: <Attendance/>
+                element: <ProtectedRoute><Attendance/></ProtectedRoute>
             },
             {
                 path:"/payments",
-                element: <Payments/>
+                element: <ProtectedRoute><Payments/></ProtectedRoute>
             }
         ]
+    },
+    {
+        path: "/login",
+        element: <Login />
     }
 ])
 export default router;
 
-
-// import { createBrowserRouter } from 'react-router-dom';
-// import App from '../App';
-// import Dashboard from '../pages/Dashboard';
-// import Courses from '../pages/Courses';
-// import Groups from '../pages/Groups';
-// import Tables from '../pages/Dans_jadvali';
-// import Students from '../pages/Students';
-// import Attendance from '../pages/Attendance';
-// import Payments from '../pages/Payments';
-// import Login from '../pages/Login'; // Login sahifasini qo'shing
-// import ProtectedRoute from '../components/ProtectedRoute'; // ProtectedRoute komponentini import qiling
-
-// // Foydalanuvchi autentifikatsiyasi (buni Redux, Context API yoki boshqa manbadan olingan holat bilan boshqarishingiz mumkin)
-// const isAuthenticated = false; // Bu yerda autentifikatsiyani tekshiradigan haqiqiy holatni ishlating
-
-// const router = createBrowserRouter([
-//   {
-//     path: '/',
-//     element: <App />,
-//     children: [
-//       {
-//         path: '/login',
-//         element: <Login />, // Login sahifasi ochiq
-//       },
-//       {
-//         path: '/',
-//         element: (
-//           <ProtectedRoute isAuthenticated={isAuthenticated}>
-//             <Dashboard />
-//           </ProtectedRoute>
-//         ),
-//       },
-//       {
-//         path: '/courses',
-//         element: (
-//           <ProtectedRoute isAuthenticated={isAuthenticated}>
-//             <Courses />
-//           </ProtectedRoute>
-//         ),
-//       },
-//       {
-//         path: '/groups',
-//         element: (
-//           <ProtectedRoute isAuthenticated={isAuthenticated}>
-//             <Groups />
-//           </ProtectedRoute>
-//         ),
-//       },
-//       {
-//         path: '/tables',
-//         element: (
-//           <ProtectedRoute isAuthenticated={isAuthenticated}>
-//             <Tables />
-//           </ProtectedRoute>
-//         ),
-//       },
-//       {
-//         path: '/students',
-//         element: (
-//           <ProtectedRoute isAuthenticated={isAuthenticated}>
-//             <Students />
-//           </ProtectedRoute>
-//         ),
-//       },
-//       {
-//         path: '/attendance',
-//         element: (
-//           <ProtectedRoute isAuthenticated={isAuthenticated}>
-//             <Attendance />
-//           </ProtectedRoute>
-//         ),
-//       },
-//       {
-//         path: '/payments',
-//         element: (
-//           <ProtectedRoute isAuthenticated={isAuthenticated}>
-//             <Payments />
-//           </ProtectedRoute>
-//         ),
-//       },
-//     ],
-//   },
-// ]);
-
-// export default router;
