@@ -4,6 +4,8 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const courseRoutes = require("./routes/courseRoutes");
+const groupRoutes = require("./routes/groupRoutes");
+const studentRoutes = require("./routes/studentRoutes");
 const { login } = require("./auth/Login");
 
 const app = express();
@@ -52,6 +54,11 @@ app.get("/api/dashboard", (req, res) => {
 
 // Kurslar API
 app.use("/api/courses", courseRoutes)
+// group API
+app.use("/api/groups", groupRoutes)
+// student API
+app.use("/api/students", studentRoutes);
+
 
 // Serverni ishga tushirish 
 app.listen(PORT, () => {
