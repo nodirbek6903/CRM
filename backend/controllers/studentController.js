@@ -28,6 +28,7 @@ exports.getStudentById = async (req, res) => {
 };
 
 // Talaba yaratish
+// Talaba yaratish
 exports.createStudent = async (req, res) => {
   const { name, phone, dob, direction, type, course, group } = req.body;
 
@@ -39,12 +40,9 @@ exports.createStudent = async (req, res) => {
     const selectedGroup = await Group.findById(group);
     if (!selectedGroup) return res.status(404).json({ message: "Guruh topilmadi" });
 
-    // Kurs va guruh turlarining mosligini tekshirish
-    if (selectedCourse.type !== type || selectedGroup.type !== type) {
-      return res.status(400).json({
-        message: `Tanlangan kurs turi (${selectedCourse.type}) va guruh turi (${selectedGroup.type}) mos emas.`,
-      });
-    }
+    // TeacherName ni guruhdan olish
+    const teacher = selectedGroup.teacherName;
+    if (!teacher) return res.status(400).json({ message: "Guruhda o'qituvchi nomi yo'q" });
 
     // Talabani yaratish
     const student = new Student({
@@ -55,6 +53,7 @@ exports.createStudent = async (req, res) => {
       type,
       course,
       group,
+      teacherName: teacher // teacherName ni guruhdan olib qo'yamiz
     });
 
     await student.save();
@@ -71,9 +70,11 @@ exports.createStudent = async (req, res) => {
 
     res.status(201).json(student);
   } catch (error) {
+    console.error("Talabani yaratishda xatolik:", error);  // Xatolik haqida qo'shimcha ma'lumot
     res.status(500).json({ message: "Talabani yaratishda xatolik yuz berdi", error });
   }
 };
+
 
 // Talabani tahrirlash
 exports.updateStudent = async (req, res) => {
