@@ -6,8 +6,8 @@ const {
   getCourseById,
   updateCourse,
   deleteCourse,
-  getGroupsByCourseId
-} = require("../controllers/courseController");
+  getGroupsByCourseId,
+} = require("../controllers/courseController"); // Yo'nalish to'g'ri ekanligiga ishonch hosil qiling
 
 // Kurslar uchun marshrutlar
 router.post("/", createCourse);
@@ -15,6 +15,6 @@ router.get("/", getCourses);
 router.get("/:id", getCourseById);
 router.put("/:id", updateCourse);
 router.delete("/:id", deleteCourse);
-router.get("/:id/groups", getGroupsByCourseId)
+router.get("/:id/groups", getGroupsByCourseId);
 
 module.exports = router;

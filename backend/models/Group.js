@@ -9,17 +9,17 @@ const groupSchema = new mongoose.Schema(
       ref: "Course", // Kursga referensiya
       required: true,
     },
-    lessonDays: { type: [String], required: true }, // Dars kunlari (masalan, ["Dushanba", "Chorshanba"])
+    lessonDays: { type: [String], required: true }, //
     startDate: { type: Date, required: true },
     createdDate: { type: Date, default: Date.now },
     status: {
       type: String,
-      enum: ["active", "noActive"],
-      default: "noActive",
+      enum: ["active", "No Active"],
+      default: "No Active",
     },
     studentCount: { type: Number, default: 0 },
     teacherName: { type: String, required: true },
-    roomNumber: { type: Number, default: 0 }, // Offline kurslar uchun xona raqami
+    roomNumber: { type: Number, default: 0 },
   },
   { timestamps: true }
 );

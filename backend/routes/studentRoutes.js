@@ -1,15 +1,14 @@
 const express = require("express");
+const router = express.Router();
 const {
   getStudents,
   getStudentById,
   createStudent,
   updateStudent,
   deleteStudent,
-} = require("../controllers/studentController");
+} = require("../controllers/studentController"); // Yo'nalish to'g'ri ekanligiga ishonch hosil qiling
 
-const router = express.Router();
-
-// Talabalar marshrutlari
+// Talabalar uchun marshrutlar
 router.get("/", getStudents); // Barcha talabalarni olish
 router.get("/:id", getStudentById); // ID orqali talabani olish
 router.post("/", createStudent); // Talaba yaratish
