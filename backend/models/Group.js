@@ -1,27 +1,36 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const groupSchema = new mongoose.Schema(
-  {
+const GroupSchema = new mongoose.Schema({
     name: { type: String, required: true },
-    direction: { type: String, required: true },
-    course: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Course", // Kursga referensiya
-      required: true,
-    },
-    lessonDays: { type: [String], required: true }, //
-    startDate: { type: Date, required: true },
-    createdDate: { type: Date, default: Date.now },
-    status: {
-      type: String,
-      enum: ["active", "No Active"],
-      default: "No Active",
-    },
+    courseId: { type: mongoose.Schema.Types.ObjectId, ref: 'Course', required: true },
+    teacher: { type: String, required: true },
     studentCount: { type: Number, default: 0 },
-    teacherName: { type: String, required: true },
-    roomNumber: { type: Number, default: 0 },
-  },
-  { timestamps: true }
-);
+    startDate: { type: Date, required: true },
+    type: {
+        type: String,
+        enum: ['Online', 'Offline'],
+        required: true,
+    },
+    lessonDays: {
+        type: [String],
+        required: true,
+    },
+    roomNumber: {
+        type: String,
+        required: function () {
+            return this.type === 'Offline';
+        },
+        validate: {
+            validator: function(value) {
+                // Agar roomNumber mavjud bo'lsa, bu to'g'ri qiymat bo'lishi kerak (string)
+                if (this.type === 'Offline' && !value) {
+                    return false;  // roomNumber bo'lishi kerak
+                }
+                return true;
+            },
+            message: 'Room number is required for Offline groups',
+        },
+    }
+}, { timestamps: true });
 
-module.exports = mongoose.model("Group", groupSchema);
+module.exports = mongoose.model('Group', GroupSchema);

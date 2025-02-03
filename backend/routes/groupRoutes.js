@@ -1,20 +1,12 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const {
-  getGroups,
-  getGroupById,
-  createGroup,
-  updateGroup,
-  deleteGroup,
-  getStudentsByCourseId,
-} = require("../controllers/groupController"); // Yo'nalish to'g'ri ekanligiga ishonch hosil qiling
+const groupController = require('../controllers/groupController');
 
-// Guruhlar uchun marshrutlar
-router.get("/", getGroups); // Barcha guruhlarni olish
-router.get("/:id", getGroupById); // ID orqali guruhni olish
-router.post("/", createGroup); // Guruh yaratish
-router.put("/:id", updateGroup); // Guruhni tahrirlash
-router.delete("/:id", deleteGroup); // Guruhni o‘chirish
-router.get("/:id/students", getStudentsByCourseId);
+router.get('/', groupController.getGroups); // Get all groups
+router.get('/:id', groupController.getGroup); // Get a single group by ID
+router.post('/', groupController.createGroup); // Create a new group
+router.put('/:id', groupController.updateGroup); // Update a group by ID
+router.delete('/:id', groupController.deleteGroup); // Delete a group by ID
+router.get('/courses/:courseId', groupController.fetchGroupsByCourse); // Get all groups by courses
 
 module.exports = router;

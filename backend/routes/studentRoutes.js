@@ -1,18 +1,11 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const {
-  getStudents,
-  getStudentById,
-  createStudent,
-  updateStudent,
-  deleteStudent,
-} = require("../controllers/studentController"); // Yo'nalish to'g'ri ekanligiga ishonch hosil qiling
+const studentController = require('../controllers/studentController');
 
-// Talabalar uchun marshrutlar
-router.get("/", getStudents); // Barcha talabalarni olish
-router.get("/:id", getStudentById); // ID orqali talabani olish
-router.post("/", createStudent); // Talaba yaratish
-router.put("/:id", updateStudent); // Talabani tahrirlash
-router.delete("/:id", deleteStudent); // Talabani o‘chirish
+router.get('/', studentController.getStudents); // Get all students
+router.get('/:id', studentController.getStudent); // Get a single student by ID
+router.post('/', studentController.createStudent); // Create a new student
+router.put('/:id', studentController.updateStudent); // Update a student by ID
+router.delete('/:id', studentController.deleteStudent); // Delete a student by ID
 
 module.exports = router;

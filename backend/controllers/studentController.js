@@ -1,177 +1,105 @@
 const Student = require("../models/Student");
-const Course = require("../models/Course");
 const Group = require("../models/Group");
-const mongoose = require("mongoose");
+const Course = require("../models/Course");
 
-// Barcha talabalarni olish
+// Get all students
 exports.getStudents = async (req, res) => {
-  try {
-    const students = await Student.find()
-      .populate("course", "name direction type")
-      .populate("group", "name direction");
-    res.status(200).json(students);
-  } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Talabalarni olishda xatolik yuz berdi", error });
-  }
+    try {
+        const students = await Student.find().populate("courseId").populate("groupId");
+        res.status(200).json(students);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
 };
 
-// ID orqali talabani olish
-exports.getStudentById = async (req, res) => {
-  try {
-    const student = await Student.findById(req.params.id)
-      .populate("course", "name direction type")
-      .populate("group", "name direction");
-    if (!student) return res.status(404).json({ message: "Talaba topilmadi" });
-    res.status(200).json(student);
-  } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Talabani olishda xatolik yuz berdi", error });
-  }
+// Get a single student
+exports.getStudent = async (req, res) => {
+    try {
+        const student = await Student.findById(req.params.id).populate("courseId").populate("groupId");
+        if (!student) return res.status(404).json({ message: "Student not found" });
+        res.status(200).json(student);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
 };
 
-// Talaba yaratish
+// Create a student
 exports.createStudent = async (req, res) => {
-  const session = await mongoose.startSession();
-  session.startTransaction();
+    try {
+        const { name, phone, birthday, groupId, courseId } = req.body;
 
-  try {
-    const { name, phone, dob, direction, type, course, group } = req.body;
-
-    const selectedCourse = await Course.findById(course).session(session);
-    if (!selectedCourse) {
-      await session.abortTransaction();
-      session.endSession();
-      return res.status(404).json({ message: "Kurs topilmadi" });
-    }
-
-    const selectedGroup = await Group.findById(group).session(session);
-    if (!selectedGroup) {
-      await session.abortTransaction();
-      session.endSession();
-      return res.status(404).json({ message: "Guruh topilmadi" });
-    }
-
-    const teacher = selectedGroup.teacherName;
-    if (!teacher) {
-      await session.abortTransaction();
-      session.endSession();
-      return res.status(400).json({ message: "Guruhda o'qituvchi nomi yo'q" });
-    }
-
-    const student = new Student({
-      name,
-      phone,
-      dob,
-      direction,
-      type,
-      course,
-      group,
-      teacherName: teacher,
-    });
-
-    await student.save({ session });
-
-    selectedCourse.studentCount += 1;
-    await selectedCourse.save({ session });
-
-    selectedGroup.studentCount += 1;
-    if (
-      selectedGroup.studentCount >= 10 &&
-      selectedGroup.status === "noActive"
-    ) {
-      selectedGroup.status = "active";
-    }
-    await selectedGroup.save({ session });
-
-    await session.commitTransaction();
-    session.endSession();
-    res.status(201).json(student);
-  } catch (error) {
-    await session.abortTransaction();
-    session.endSession();
-    console.error("Talabani yaratishda xatolik:", error);
-    res
-      .status(500)
-      .json({ message: "Talabani yaratishda xatolik yuz berdi", error });
-  }
-};
-
-// Talabani tahrirlash
-exports.updateStudent = async (req, res) => {
-  const { id } = req.params;
-  const { name, phone, dob } = req.body;
-
-  try {
-    const student = await Student.findById(id);
-    if (!student) return res.status(404).json({ message: "Talaba topilmadi" });
-
-    student.name = name || student.name;
-    student.phone = phone || student.phone;
-    student.dob = dob || student.dob;
-
-    await student.save();
-    res.status(200).json(student);
-  } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Talabani tahrirlashda xatolik yuz berdi", error });
-  }
-};
-
-// Talabani o‘chirish
-// Talabani o‘chirish
-exports.deleteStudent = async (req, res) => {
-  const { id } = req.params;
-  const session = await mongoose.startSession();
-  session.startTransaction();
-
-  try {
-    // Studentni topish
-    const student = await Student.findById(id).session(session);
-    if (!student) {
-      await session.abortTransaction();
-      session.endSession();
-      return res.status(404).json({ message: "Talaba topilmadi" });
-    }
-
-    // Course va Group bilan bog'liq malumotlarni yangilash
-    if (student.course) {
-      const course = await Course.findById(student.course).session(session);
-      if (course) {
-        course.studentCount = Math.max(0, course.studentCount - 1);
-        await course.save({ session });
-      }
-    }
-
-    if (student.group) {
-      const group = await Group.findById(student.group).session(session);
-      if (group) {
-        group.studentCount = Math.max(0, group.studentCount - 1);
-        if (group.studentCount < 10) {
-          group.status = "No Active";
+        if (!groupId) {
+            return res.status(400).json({ message: "Group ID is required!" });
         }
-        await group.save({ session });
-      }
+
+        const group = await Group.findById(groupId);
+        if (!group) {
+            return res.status(404).json({ message: "Group not found!" });
+        }
+
+        // Telefon raqami oldindan mavjudligini tekshiramiz
+        const existingStudent = await Student.findOne({ phone });
+        if (existingStudent) {
+            return res.status(400).json({ message: "Bu telefon raqami allaqachon mavjud!" });
+        }
+
+        const student = new Student({ name, phone, birthday, groupId, courseId });
+        await student.save();
+
+        group.studentCount += 1;
+        await group.save();
+
+        const course = await Course.findById(courseId)
+        course.studentCount += 1;
+        await course.save()
+
+        res.status(201).json(student);
+    } catch (err) {
+        res.status(400).json({ error: err.message });
     }
-
-    // Talabani o'chirish
-    await Student.deleteOne({ _id: id }, { session });
-
-    // Transactionni yakunlash
-    await session.commitTransaction();
-    session.endSession();
-
-    res.status(200).json({ message: "Talaba muvaffaqiyatli o'chirildi" });
-  } catch (error) {
-    // Xatolik bo'lsa, transaksiyani bekor qilish
-    await session.abortTransaction();
-    session.endSession();
-
-    console.error("Talabani o'chirishda xatolik:", error);
-    res.status(500).json({ message: "Talabani o'chirishda xatolik yuz berdi", error });
-  }
 };
 
+
+// Update a student
+exports.updateStudent = async (req, res) => {
+    try {
+        const student = await Student.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        if (!student) return res.status(404).json({ message: "Student not found" });
+        res.status(200).json(student);
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+};
+
+// Delete a student
+exports.deleteStudent = async (req, res) => {
+    try {
+        const student = await Student.findById(req.params.id);
+        if (!student) return res.status(404).json({ message: "Student not found" });
+
+        const group = await Group.findById(student.groupId);
+        if (group) {
+            group.studentCount -= 1;
+            if(group.studentCount < 0) {
+                group.studentCount = 0;
+            }
+            await group.save();
+
+            if (group.courseId) {
+                const course = await Course.findById(group.courseId);
+                if (course) {
+                    course.studentCount -= 1;
+                    if(course.studentCount < 0) {
+                        course.studentCount = 0;
+                    }
+                    await course.save();
+                }
+            }
+        }
+
+        await Student.findByIdAndDelete(req.params.id);
+        res.status(200).json({ message: "Student deleted successfully" });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};

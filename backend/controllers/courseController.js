@@ -1,127 +1,59 @@
-const mongoose = require("mongoose");
-const Course = require("../models/Course");
-const Group = require("../models/Group");
+const Course = require('../models/Course');
+const Group = require('../models/Group');
 
-// Kurs yaratish
-exports.createCourse = async (req, res) => {
-  const session = await mongoose.startSession();
-  session.startTransaction();
-  try {
-    const { name, direction, topics, type } = req.body;
-
-    if (!name || !direction || !topics || !type) {
-      return res.status(400).json({ message: "Barcha maydonlarni to‘ldiring" });
-    }
-
-    const newCourse = new Course({ name, direction, topics, type });
-    await newCourse.save({ session });
-
-    await session.commitTransaction();
-    session.endSession();
-
-    res.status(201).json(newCourse);
-  } catch (error) {
-    await session.abortTransaction();
-    session.endSession();
-    console.error(error);
-    res.status(500).json({ message: "Kursni yaratishda xatolik yuz berdi", error: error.message });
-  }
-};
-
-// Kurslarni olish
+// Get all courses
 exports.getCourses = async (req, res) => {
-  try {
-    const courses = await Course.find();
-    res.status(200).json(courses);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Kurslarni olishda xatolik yuz berdi", error: error.message });
-  }
-};
-
-// Kursni ID orqali olish
-exports.getCourseById = async (req, res) => {
-  try {
-    const course = await Course.findById(req.params.id);
-
-    if (!course) {
-      return res.status(404).json({ message: "Kurs topilmadi" });
+    try {
+        const courses = await Course.find();
+        res.status(200).json(courses);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
     }
-
-    res.status(200).json(course);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Kursni olishda xatolik yuz berdi", error: error.message });
-  }
 };
 
-// Kursni tahrirlash
+// Get a single course
+exports.getCourse = async (req, res) => {
+    try {
+        const course = await Course.findById(req.params.id);
+        if (!course) return res.status(404).json({ message: 'Course not found' });
+        res.status(200).json(course);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
+
+// Create a course
+exports.createCourse = async (req, res) => {
+    try {
+        const course = new Course(req.body);
+        await course.save();
+        res.status(201).json(course);
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+};
+
+// Update a course
 exports.updateCourse = async (req, res) => {
-  const session = await mongoose.startSession();
-  session.startTransaction();
-  try {
-    const { name, direction, topics } = req.body;
-
-    const course = await Course.findById(req.params.id).session(session);
-
-    if (!course) {
-      return res.status(404).json({ message: "Kurs topilmadi" });
+    try {
+        const course = await Course.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        if (!course) return res.status(404).json({ message: 'Course not found' });
+        res.status(200).json(course);
+    } catch (err) {
+        res.status(400).json({ error: err.message });
     }
-
-    course.name = name || course.name;
-    course.direction = direction || course.direction;
-    course.topics = topics || course.topics;
-
-    await course.save({ session });
-
-    await session.commitTransaction();
-    session.endSession();
-
-    res.status(200).json(course);
-  } catch (error) {
-    await session.abortTransaction();
-    session.endSession();
-    console.error(error);
-    res.status(500).json({ message: "Kursni tahrirlashda xatolik yuz berdi", error: error.message });
-  }
 };
 
-// Kursni o‘chirish
+// Delete a course
 exports.deleteCourse = async (req, res) => {
-  const session = await mongoose.startSession();
-  session.startTransaction();
-  try {
-    const courseId = req.params.id;
-
-    // Kursni topish
-    const course = await Course.findById(courseId).session(session);
-
-    if (!course) {
-      return res.status(404).json({ message: "Kurs topilmadi" });
+    try {
+        const groups = await Group.find({ courseId: req.params.id });
+        if (groups.length > 0) {
+            return res.status(400).json({ message: "Bu kursga tegishli guruhlar mavjud. Avval o'sha guruhlarni o'chiring!" });
+        }
+        await Course.findByIdAndDelete(req.params.id);
+        res.status(200).json({ message: 'Course deleted successfully' });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
     }
-
-    // Agar guruhlar bo'lmasa, kursni o'chirish
-    await Course.findByIdAndDelete(courseId).session(session);
-
-    await session.commitTransaction();
-    session.endSession();
-
-    res.status(200).json({ message: "Kurs muvaffaqiyatli o‘chirildi" });
-  } catch (error) {
-    await session.abortTransaction();
-    session.endSession();
-    console.error(error);
-    res.status(500).json({ message: "Kursni o‘chirishda xatolik yuz berdi", error: error.message });
-  }
-};
-
-// Kursga tegishli guruhlarni tekshirish
-exports.getGroupsByCourseId = async (req, res) => {
-  try {
-    const groups = await Group.find({ course: req.params.id });
-    res.status(200).json(groups); // Guruhlar mavjudligini qaytarish
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Guruhlarni olishda xatolik yuz berdi", error: error.message });
-  }
 };

@@ -6,6 +6,8 @@ const jwt = require("jsonwebtoken");
 const courseRoutes = require("./routes/courseRoutes");
 const groupRoutes = require("./routes/groupRoutes");
 const studentRoutes = require("./routes/studentRoutes");
+const attendanceRoutes = require("./routes/attendanceRoutes")
+const paymentRoutes = require("./routes/paymentsRoutes")
 const { login } = require("./auth/Login");
 
 const app = express();
@@ -58,6 +60,13 @@ app.use("/api/courses", courseRoutes)
 app.use("/api/groups", groupRoutes)
 // student API
 app.use("/api/students", studentRoutes);
+
+// Davomat API
+app.use("/api/students", attendanceRoutes)
+// To'lov API
+app.use("/api/students", paymentRoutes)
+
+
 
 
 // Serverni ishga tushirish 

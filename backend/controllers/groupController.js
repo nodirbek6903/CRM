@@ -1,164 +1,117 @@
-const mongoose = require("mongoose");
-const Group = require("../models/Group");
-const Course = require("../models/Course");
-const Student = require("../models/Student");
+const Group = require('../models/Group');
+const Student = require('../models/Student');
+const Course = require('../models/Course');
 
-// Barcha guruhlarni olish
+// Get all groups
 exports.getGroups = async (req, res) => {
-  const { type } = req.query; // Filter orqali turli tiplarni olish (Online/Offline)
-
-  try {
-    const groups = await Group.find()
-      .populate("course", "name direction type") // Kursni o'z ichiga olgan holda
-      .exec();
-
-    // Agar filter (type) bo'lsa, guruhlarni kursning `type`ga qarab filtrlash
-    if (type) {
-      const filteredGroups = groups.filter(group => 
-        group.course.type.toLowerCase() === type.toLowerCase()
-      );
-      return res.status(200).json(filteredGroups);
+    try {
+        const groups = await Group.find().populate('courseId');
+        res.status(200).json(groups);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
     }
-
-    res.status(200).json(groups); // Agar filter bo'lmasa, barcha guruhlarni qaytarish
-  } catch (error) {
-    res.status(500).json({ message: "Guruhlarni olishda xatolik yuz berdi", error });
-  }
 };
 
-// ID orqali guruhni olish
-exports.getGroupById = async (req, res) => {
-  try {
-    const group = await Group.findById(req.params.id).populate("course", "name direction type");
-    if (!group) return res.status(404).json({ message: "Guruh topilmadi" });
-    res.status(200).json(group);
-  } catch (error) {
-    res.status(500).json({ message: "Guruhni olishda xatolik yuz berdi", error });
-  }
+// Get a single group
+exports.getGroup = async (req, res) => {
+    try {
+        const group = await Group.findById(req.params.id).populate('courseId');
+        if (!group) return res.status(404).json({ message: 'Group not found' });
+        res.status(200).json(group);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
 };
 
-// Guruh yaratish
+// Create a group
 exports.createGroup = async (req, res) => {
-  const session = await mongoose.startSession();
-  session.startTransaction();
-
   try {
-    const { name, direction, course, lessonDays, startDate, teacherName, roomNumber } = req.body;
+    const {name, courseId, teacher, studenCount, startDate, type, lessonDays, roomNumber} = req.body
+      const course = await Course.findById(courseId);
+      if (!course) return res.status(404).json({ message: 'Course not found' });
 
-    const selectedCourse = await Course.findById(course).session(session);
-    if (!selectedCourse) {
-      await session.abortTransaction();
-      session.endSession();
-      return res.status(404).json({ message: "Kurs topilmadi" });
-    }
+      // guruh mavjudligini oldindan tekshiramiz
+        const existingGroup = await Group.findOne({ name });
+        if (existingGroup) {
+            return res.status(400).json({ message: 'Bunday guruh mavjud' });
+        }
 
-    const group = new Group({
-      name,
-      direction,
-      course,
-      lessonDays,
-      startDate,
-      teacherName,
-      roomNumber: selectedCourse.type === "Offline" ? roomNumber : null, // faqat offline kurslar uchun
-    });
+      const group = new Group(req.body);
+      await group.save();
 
-    await group.save({ session });
+      const validationError = group.validateSync(); // Validationni tekshirish
+      if (validationError) {
+          return res.status(400).json({ error: validationError.message });
+      }
 
-    // Kursdagi guruhlar sonini yangilash
-    selectedCourse.groupCount += 1;
-    await selectedCourse.save({ session });
+      // Update groupCount in the course
+      course.groupCount += 1;
+      await course.save();
 
-    await session.commitTransaction();
-    session.endSession();
-
-    res.status(201).json(group);
-  } catch (error) {
-    await session.abortTransaction();
-    session.endSession();
-    res.status(500).json({ message: "Guruhni yaratishda xatolik yuz berdi", error });
+      res.status(201).json(group);
+  } catch (err) {
+      res.status(400).json({ error: err.message });
   }
 };
 
-// Guruhni tahrirlash
+// Update a group
 exports.updateGroup = async (req, res) => {
-  const { id } = req.params;
-  const { name, direction, lessonDays, startDate, teacherName, roomNumber } = req.body;
-  const session = await mongoose.startSession();
-  session.startTransaction();
+    try {
+        const group = await Group.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        if (!group) return res.status(404).json({ message: 'Group not found' });
 
-  try {
-    const group = await Group.findById(id).session(session);
-    if (!group) {
-      await session.abortTransaction();
-      session.endSession();
-      return res.status(404).json({ message: "Guruh topilmadi" });
+        const validationError = group.validateSync();
+        if (validationError) {
+            return res.status(400).json({ error: validationError.message });
+        }
+
+        res.status(200).json(group);
+    } catch (err) {
+        res.status(400).json({ error: err.message });
     }
-
-    // Guruhdagi qiymatlarni yangilash
-    group.name = name || group.name;
-    group.direction = direction || group.direction;
-    group.lessonDays = lessonDays || group.lessonDays;
-    group.startDate = startDate || group.startDate;
-    group.teacherName = teacherName || group.teacherName;
-
-    // Kurs tipi offline bo'lsa, xona raqamini yangilash
-    const course = await Course.findById(group.course).session(session);
-    if (course && course.type.toLowerCase() === "offline") {
-      group.roomNumber = roomNumber || group.roomNumber;
-    }
-
-    await group.save({ session });
-    await session.commitTransaction();
-    session.endSession();
-
-    res.status(200).json(group);
-  } catch (error) {
-    await session.abortTransaction();
-    session.endSession();
-    res.status(500).json({ message: "Guruhni tahrirlashda xatolik yuz berdi", error });
-  }
 };
 
-// Guruhni o‘chirish
+// Delete a group
 exports.deleteGroup = async (req, res) => {
-  const { id } = req.params;
-  const session = await mongoose.startSession();
-  session.startTransaction();
-
   try {
-    const group = await Group.findById(id).session(session);
-    if (!group) {
-      await session.abortTransaction();
-      session.endSession();
-      return res.status(404).json({ message: "Guruh topilmadi" });
-    }
+      const group = await Group.findById(req.params.id);
+      if (!group) return res.status(404).json({ message: 'Group not found' });
 
-    await Group.deleteOne({ _id: id }, { session });
+      // studentni tekshirish
+      const studentsInGroup = await Student.find({ groupId: req.params.id });
+      if (studentsInGroup.length > 0) {
+          return res.status(400).json({ message: 'Bu guruhga tegishli studentlar mavjud' });
+      }
 
-    // Kursdagi guruhlar sonini yangilash
-    const course = await Course.findById(group.course).session(session);
-    if (course) {
-      course.groupCount = Math.max(0, course.groupCount - 1);
-      await course.save({ session });
-    }
+      await Group.findByIdAndDelete(req.params.id);
 
-    await session.commitTransaction();
-    session.endSession();
+      // Update groupCount in the course
+      const course = await Course.findById(group.courseId);
+      if (course) {
+          course.groupCount -= 1;
+          if(course.groupCount < 0){
+            course.groupCount = 0;
+          }
+          await course.save();
+      }
 
-    res.status(200).json({ message: "Guruh muvaffaqiyatli o‘chirildi" });
-  } catch (error) {
-    await session.abortTransaction();
-    session.endSession();
-    res.status(500).json({ message: "Guruhni o‘chirishda xatolik yuz berdi", error });
+      res.status(200).json({ message: 'Group deleted successfully' });
+  } catch (err) {
+      res.status(500).json({ error: err.message });
   }
 };
 
-// Guruhga tegishli studentlarni tekshirish
-exports.getStudentsByCourseId = async (req, res) => {
-  try {
-    const students = await Student.find({ group: req.params.id });
-    res.status(200).json(students); // Studentlar mavjudligini qaytarish
-  } catch (error) {
-    res.status(500).json({ message: "Studentlarni olishda xatolik yuz berdi", error });
-  }
+exports.fetchGroupsByCourse = async (req, res) => {
+    try {
+        const groups = await Group.find({ courseId: req.params.courseId });
+        
+        if (!groups.length) {
+            return res.status(404).json({ message: "Ushbu kursga tegishli guruhlar topilmadi" });
+        }
+
+        res.status(200).json(groups);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
 };
+
