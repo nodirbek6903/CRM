@@ -1,8 +1,8 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const attendanceController = require('../controllers/attendanceController');
+const { getAttendance, createOrUpdateAttendance } = require("../controllers/attendanceController");
 
-router.get('/group/:groupId', attendanceController.getAttendanceByGroup); // Get attendance for a specific group
-router.post('/', attendanceController.createAttendance); // Create attendance for a group
+router.get("/:groupId", getAttendance);
+router.post("/", createOrUpdateAttendance);
 
 module.exports = router;

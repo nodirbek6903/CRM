@@ -26,7 +26,7 @@ exports.getGroup = async (req, res) => {
 // Create a group
 exports.createGroup = async (req, res) => {
   try {
-    const {name, courseId, teacher, studenCount, startDate, type, lessonDays, roomNumber} = req.body
+    const {name, courseId} = req.body
       const course = await Course.findById(courseId);
       if (!course) return res.status(404).json({ message: 'Course not found' });
 
@@ -45,7 +45,7 @@ exports.createGroup = async (req, res) => {
       }
 
       // Update groupCount in the course
-      course.groupCount += 1;
+      course.groupCount = Math.max(course.groupCount, 0) + 1;
       await course.save();
 
       res.status(201).json(group);
@@ -88,10 +88,7 @@ exports.deleteGroup = async (req, res) => {
       // Update groupCount in the course
       const course = await Course.findById(group.courseId);
       if (course) {
-          course.groupCount -= 1;
-          if(course.groupCount < 0){
-            course.groupCount = 0;
-          }
+        course.groupCount = Math.max(0, course.groupCount - 1);
           await course.save();
       }
 

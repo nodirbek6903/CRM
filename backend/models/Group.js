@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const GroupSchema = new mongoose.Schema({
     name: { type: String, required: true },
     courseId: { type: mongoose.Schema.Types.ObjectId, ref: 'Course', required: true },
+    courseName: {type:String, required: true},
     teacher: { type: String, required: true },
     studentCount: { type: Number, default: 0 },
     startDate: { type: Date, required: true },

@@ -62,7 +62,7 @@ app.use("/api/groups", groupRoutes)
 app.use("/api/students", studentRoutes);
 
 // Davomat API
-app.use("/api/students", attendanceRoutes)
+app.use("/api/attendance", attendanceRoutes)
 // To'lov API
 app.use("/api/students", paymentRoutes)
 

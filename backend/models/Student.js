@@ -8,6 +8,9 @@ const StudentSchema = new mongoose.Schema({
         required: true,
     },
     groupId: { type: mongoose.Schema.Types.ObjectId, ref: 'Group', required: true },
+    groupName: { type:String, required: true},
+    courseName: { type:String, required: true},
+    type: { type:String, required: true },
     phone: {
         type: String,
         required: true,
